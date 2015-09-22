@@ -1,0 +1,1 @@
+{"version":3,"sources":["main.scss"],"names":[],"mappings":"AACA;EACI,gBAAgB,EADV","file":"main.css","sourcesContent":["// @import \"node_modules/bootstrap-sass/assets/stylesheets/bootstrap\";\n.content {\n    background: red;\n}"],"sourceRoot":"/source/"}

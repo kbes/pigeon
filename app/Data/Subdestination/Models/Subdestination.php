@@ -1,8 +1,8 @@
-<?php namespace App\Data\Boat\Models;
+<?php namespace App\Data\Subdestination\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Boat extends Model
+class Subdestination extends Model
 {
 
     /**
@@ -11,10 +11,5 @@ class Boat extends Model
      * @var array
      */
     protected $fillable = [];
-
-    public function trips()
-    {
-        return $this->hasMany('App\Data\Trip\Models\Trip');
-    }
 
 }

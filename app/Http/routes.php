@@ -16,3 +16,5 @@ Route::get('/', function () {
 });
 
 Route::controller('boats', 'BoatController');
+Route::controller('trips', 'TripController');
+Route::controller('cargo', 'CargoController');

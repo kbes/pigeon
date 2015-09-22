@@ -1,8 +1,8 @@
-<?php namespace App\Data\Boat\Models;
+<?php namespace App\Data\Trip\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Boat extends Model
+class Trip extends Model
 {
 
     /**
@@ -12,9 +12,8 @@ class Boat extends Model
      */
     protected $fillable = [];
 
-    public function trips()
+    public function boat()
     {
-        return $this->hasMany('App\Data\Trip\Models\Trip');
+        return $this->belongsTo('App\Data\Boat\Models\Boat');
     }
-
 }

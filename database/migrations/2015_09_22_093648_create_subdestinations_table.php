@@ -12,7 +12,7 @@ class CreateSubdestinationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('subdestinations', function (Blueprint $table) {
+        Schema::create('subdestinations', function ($table) {
             $table->increments('id');
             $table->integer('destination_id', 11);
             $table->string('name', 255);

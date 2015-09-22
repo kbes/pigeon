@@ -12,7 +12,7 @@ class CreateCargoTable extends Migration
      */
     public function up()
     {
-        Schema::create('cargo', function (Blueprint $table) {
+        Schema::create('cargo', function ($table) {
             $table->increments('id', 10);
             $table->string('name', 255);
             $table->integer('width', 10);

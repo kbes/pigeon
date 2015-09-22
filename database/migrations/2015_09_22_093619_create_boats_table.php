@@ -12,7 +12,7 @@ class CreateBoatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('boats', function (Blueprint $table) {
+        Schema::create('boats', function ($table) {
             $table->increments('id');
             $table->string('name', 255);
             $table->integer('width', 10);

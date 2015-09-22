@@ -12,7 +12,7 @@ class CreateTripsTable extends Migration
      */
     public function up()
     {
-        Schema::create('trips', function (Blueprint $table) {
+        Schema::create('trips', function ($table) {
             $table->increments('id');
             $table->string('boat_id', 255);
         });

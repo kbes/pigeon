@@ -33,7 +33,7 @@ class FrontController extends Controller
     {
         $allBoats = $this->boats->get();
 
-        return View::make('boats.index')
+        return View::make('front.index')
             ->with('boats', $allBoats);
     }
 

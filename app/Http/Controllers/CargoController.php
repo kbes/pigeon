@@ -6,22 +6,30 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Data\Cargo\Contracts\CargoInterface;
+use App\Data\Category\Contracts\CategoryInterface;
 use View;
 
 class CargoController extends Controller
 {
     /**
-     * The ticket repository implementation class
+     * The category repository implementation class
+     * @var App\Data\Category\Contracts\CategoryInterface
+     */
+    private $categories;
+    /**
+     * The cargo repository implementation class
      * @var App\Data\Cargo\Contracts\CargoInterface
      */
     private $cargo;
 
     /**
      * @param App\Data\Cargo\Contracts\CargoInterface $cargo
+     * @param App\Data\Category\Contracts\CategoryInterface $cargo
      */
-    public function __construct(CargoInterface $cargo)
+    public function __construct(CargoInterface $cargo, CategoryInterface $categories)
     {
         $this->cargo = $cargo;
+        $this->categories = $categories;
     }
 
     /**
@@ -31,10 +39,12 @@ class CargoController extends Controller
      */
     public function getIndex()
     {
-        $allCargo = $this->cargo->get();
+        $cargo = $this->cargo->get();
+        $categories = $this->categories->get();
 
         return View::make('cargo.index')
-            ->with('allCargo', $allCargo);
+            ->with('categories', $categories)
+            ->with('allCargo', $cargo);
     }
 
     /**

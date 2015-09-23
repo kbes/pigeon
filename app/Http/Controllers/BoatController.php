@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Data\Boat\Contracts\BoatInterface;
+use Input;
 use View;
 
 class BoatController extends Controller
@@ -34,7 +35,20 @@ class BoatController extends Controller
     {
         $allBoats = $this->boats->get();
 
-        return View::make('front.index')
+        return View::make('boats.index')
             ->with('boats', $allBoats);
+    }
+
+    public function getNew()
+    {
+        return View::make('boats.new');
+    }
+
+    public function getEdit($id)
+    {
+        $boat = $this->boats->find($id);
+
+        return View::make('boats.edit')
+            ->with('boat', $boat);
     }
 }

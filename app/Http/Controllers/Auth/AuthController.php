@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Http\Controllers\Controller;
 use Auth;
+use Hash;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Input;
@@ -29,11 +30,10 @@ class AuthController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
-    public function getLogin()
+    public function postLogin()
     {
         if (Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')])) {
-            // Authentication passed...
-            return redirect()->intended('dashboard');
+            return redirect()->intended('/trips');
         }
 
         return View::make('auth.login');

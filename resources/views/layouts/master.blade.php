@@ -14,11 +14,6 @@
     <navigation>
         <ul>
             <li>
-                <a href="{{ url('/') }}">
-                    Overview
-                </a>
-            </li>
-            <li>
                 <a href="{{ url('trips/index') }}">
                     Trips
                 </a>

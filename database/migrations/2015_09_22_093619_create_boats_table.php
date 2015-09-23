@@ -16,7 +16,8 @@ class CreateBoatsTable extends Migration
             $table->increments('id');
             $table->string('name', 255);
             $table->integer('width', 10);
-            $table->string('length', 10);
+            $table->integer('length', 10);
+            $table->integer('user_id', 11);
             $table->string('login', 60);
             $table->string('password', 60);
         });

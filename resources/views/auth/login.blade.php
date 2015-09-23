@@ -6,7 +6,7 @@
 
         <div>
             Email
-            <input type="email" name="email" value="{{ old('email') }}">
+            <input type="email" name="email" id="email" value="{{ Input::old('email') }}">
         </div>
 
         <div>

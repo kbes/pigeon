@@ -20,23 +20,55 @@ ul {
     float:right;
 }
 
-.trips-table {
-    .id {
-        width: 5%;
+.trips {
+    table {
+        .id {
+            width: 5%;
+        }
+        .boat, .base, .view {
+            width: 10%;
+        }
+        .route {
+            width: 50%;
+        }
+        .updated {
+            width: 15%;
+        }
     }
-    .boat {
-        width: 10%;
+}
+
+.boats {
+    table {
+        .id {
+            width: 5%;
+        }
+        .name {
+            width: 85%;
+        }
+        .edit {
+            width: 10%;
+        }
     }
-    .base {
-        width: 10%;
+}
+
+.cargo {
+    .category-title {
+        display: inline-block;
+        float: left;
     }
-    .route {
-        width: 50%;
+    .category-actions {
+        float: right;
     }
-    .updated {
-        width: 15%;
-    }
-    .view {
-        width: 10%;
+
+    table {
+        .id {
+            width: 5%;
+        }
+        .name {
+            width: 85%;
+        }
+        .edit {
+            width: 10%;
+        }
     }
 }

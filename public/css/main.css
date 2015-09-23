@@ -14,20 +14,39 @@ ul {
 .logout {
   float: right; }
 
-.trips-table .id {
+.trips table .id {
   width: 5%; }
 
-.trips-table .boat {
+.trips table .boat, .trips table .base, .trips table .view {
   width: 10%; }
 
-.trips-table .base {
-  width: 10%; }
-
-.trips-table .route {
+.trips table .route {
   width: 50%; }
 
-.trips-table .updated {
+.trips table .updated {
   width: 15%; }
 
-.trips-table .view {
+.boats table .id {
+  width: 5%; }
+
+.boats table .name {
+  width: 85%; }
+
+.boats table .edit {
+  width: 10%; }
+
+.cargo .category-title {
+  display: inline-block;
+  float: left; }
+
+.cargo .category-actions {
+  float: right; }
+
+.cargo table .id {
+  width: 5%; }
+
+.cargo table .name {
+  width: 85%; }
+
+.cargo table .edit {
   width: 10%; }

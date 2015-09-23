@@ -34,7 +34,7 @@
                 </a>
             </li>
         </ul>
-        <a href="{{ url('logout') }}">Logout</a>
+        <a href="{{ url('auth/logout') }}">Logout</a>
     </navigation>
     <div class="content">
         @yield('content')

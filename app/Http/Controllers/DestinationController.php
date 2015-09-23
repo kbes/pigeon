@@ -21,6 +21,7 @@ class BoatController extends Controller
      */
     public function __construct(BoatInterface $boats)
     {
+        $this->middleware('auth');
         $this->boats = $boats;
     }
 

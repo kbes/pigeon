@@ -15,7 +15,7 @@ use View;
 class AuthController extends Controller
 {
 
-    protected $redirectPath = '/';
+    protected $redirectPath = '/trips';
     protected $loginPath = "auth/login";
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
@@ -33,10 +33,17 @@ class AuthController extends Controller
     public function postLogin()
     {
         if (Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')])) {
-            return redirect()->intended('/trips');
+            return redirect()->intended($this->redirectPath);
         }
 
         return View::make('auth.login');
+    }
+
+    public function getLogout()
+    {
+        Auth::logout();
+
+        return redirect($this->loginPath);
     }
 
     /**

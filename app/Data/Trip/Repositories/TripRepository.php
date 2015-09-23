@@ -19,5 +19,4 @@ class TripRepository extends Repository implements TripInterface
 
         parent::__construct();
     }
-
 }

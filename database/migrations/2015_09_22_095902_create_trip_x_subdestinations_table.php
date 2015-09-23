@@ -12,7 +12,7 @@ class CreateTripXSubdestinationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('trip_x_subdestinations', function ($table) {
+        Schema::create('trip_subdestinations', function ($table) {
             $table->integer('trip_id');
             $table->integer('subdestination_id');
             $table->integer('number');
@@ -26,6 +26,6 @@ class CreateTripXSubdestinationsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('trip_x_subdestinations');
+        Schema::drop('trip_subdestinations');
     }
 }

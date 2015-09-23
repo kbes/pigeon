@@ -3,23 +3,19 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
-use Validator;
 use App\Http\Controllers\Controller;
+use Auth;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Input;
+use Validator;
+use View;
 
 class AuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
+
+    protected $redirectPath = '/';
+    protected $loginPath = "auth/login";
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
@@ -31,6 +27,16 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+    }
+
+    public function getLogin()
+    {
+        if (Auth::attempt(['email' => Input::get('email'), 'password' => Input::get('password')])) {
+            // Authentication passed...
+            return redirect()->intended('dashboard');
+        }
+
+        return View::make('auth.login');
     }
 
     /**

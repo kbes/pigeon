@@ -15,6 +15,7 @@ class CreateTripsTable extends Migration
         Schema::create('trips', function ($table) {
             $table->increments('id');
             $table->string('boat_id', 255);
+            $table->timestamps();
         });
     }
 

@@ -16,4 +16,9 @@ class Trip extends Model
     {
         return $this->belongsTo('App\Data\Boat\Models\Boat');
     }
+
+    function route()
+    {
+        return $this->hasMany('App\Data\TripSubdestination\Models\TripSubdestination')->orderBy('order');
+    }
 }

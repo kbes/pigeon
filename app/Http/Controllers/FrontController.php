@@ -8,10 +8,10 @@ use App\Http\Controllers\Controller;
 use App\Data\Boat\Contracts\BoatInterface;
 use View;
 
-class BoatController extends Controller
+class FrontController extends Controller
 {
     /**
-     * The boat repository implementation class
+     * The ticket repository implementation class
      * @var App\Data\Boat\Contracts\BoatInterface
      */
     private $boats;
@@ -21,7 +21,6 @@ class BoatController extends Controller
      */
     public function __construct(BoatInterface $boats)
     {
-//        $this->middleware('auth');
         $this->boats = $boats;
     }
 
@@ -34,7 +33,17 @@ class BoatController extends Controller
     {
         $allBoats = $this->boats->get();
 
-        return View::make('front.index')
+        return View::make('boats.index')
             ->with('boats', $allBoats);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
     }
 }

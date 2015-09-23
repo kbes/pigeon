@@ -2,7 +2,7 @@
 @section('content')
     <h2>Trips</h2>
 
-    <table>
+    <table class="table-grid">
         <thead>
             <tr>
                 <th>ID</th>
@@ -19,7 +19,7 @@
                 <td>{{ $trip->id }}</td>
                 <td>{{ $trip->boat->name }}</td>
                 <td>{{ $trip->route->first()->subdestination_id }}</td>
-                <td class="no-whitespace">
+                <td>
                     @foreach($trip->route as $i => $subdestination)
                         @if ($i != 0)
                                 {{ $subdestination->subdestination->name }}

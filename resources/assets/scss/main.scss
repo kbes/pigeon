@@ -52,12 +52,19 @@ ul {
 }
 
 .cargo {
-    .category-title {
-        display: inline-block;
-        float: left;
+    .items {
+        .category-title {
+            display: inline-block;
+            float: left;
+        }
+        .category-actions {
+            margin-top: 21px;
+            float: right;
+        }
     }
-    .category-actions {
-        float: right;
+
+    .category-list {
+        padding-left: 0;
     }
 
     table {

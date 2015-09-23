@@ -35,12 +35,16 @@ ul {
 .boats table .edit {
   width: 10%; }
 
-.cargo .category-title {
+.cargo .items .category-title {
   display: inline-block;
   float: left; }
 
-.cargo .category-actions {
+.cargo .items .category-actions {
+  margin-top: 21px;
   float: right; }
+
+.cargo .category-list {
+  padding-left: 0; }
 
 .cargo table .id {
   width: 5%; }

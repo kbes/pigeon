@@ -6,8 +6,8 @@
         <div class="row">
             <div class="col-sm-3">
                 <h3>Categories</h3>
-                <a href="#">New category</a>
-                <ul>
+
+                <ul class="category-list">
                     <li>
                         <a href="#">All</a>
                     </li>
@@ -19,15 +19,16 @@
                         </li>
                     @endforeach
                 </ul>
+                <button>New category</button>
             </div>
 
-            <div class="col-sm-9">
+            <div class="col-sm-9 items">
                 <span class="category-title">
-                    <h4>All</h4>
+                    <h3>Items</h3>
                 </span>
                 <span class="category-actions">
-                    <a href="#">Edit category</a>
-                    <a href="#">New item</a>
+                    <button>Edit category</button>
+                    <button>New item</button>
                 </span>
                 <table class="table table-hover">
                     <thead>
@@ -50,54 +51,62 @@
             </div>
         </div>
 
-        <form class="hide">
-            <h2>Edit category</h2>
-            <label for="name">Name</label>
-            <input type="text" id="name">
-            <a href="#">Delete</a>
-            <a href="#">Save</a>
-        </form>
+        <div class="form-fields hide">
+            <form>
+                <h2>Edit category</h2>
+                <label for="name">Name</label>
+                <input type="text" id="name">
+                <button>Delete</button>
+                <button>Save</button>
+            </form>
+        </div>
 
-        <form class="hide">
-            <h2>Edit item</h2>
-            <label for="name">Name</label>
-            <input type="text" id="name">
-            <label for="width">Width</label>
-            <input type="text" id="width">
-            <label for="length">Length</label>
-            <input type="text" id="length">
-            <label for="category">Category</label>
-            <select id="category">
-                @foreach($categories as $category)
-                    <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
-                @endforeach
-            </select>
-            <a href="#">Delete</a>
-            <a href="#">Save</a>
-        </form>
+        <div class="form-fields hide">
+            <form>
+                <h2>Edit item</h2>
+                <label for="name">Name</label>
+                <input type="text" id="name">
+                <label for="width">Width</label>
+                <input type="text" id="width">
+                <label for="length">Length</label>
+                <input type="text" id="length">
+                <label for="category">Category</label>
+                <select id="category">
+                    @foreach($categories as $category)
+                        <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+                    @endforeach
+                </select>
+                <button>Delete</button>
+                <button>Save</button>
+            </form>
+        </div>
 
-        <form class="hide">
-            <h2>New category</h2>
-            <label for="name">Name</label>
-            <input type="text" id="name">
-            <a href="#">Save</a>
-        </form>
+        <div class="form-fields hide">
+            <form>
+                <h2>New category</h2>
+                <label for="name">Name</label>
+                <input type="text" id="name">
+                <button>Save</button>
+            </form>
+        </div>
 
-        <form class="hide">
-            <h2>New item</h2>
-            <label for="name">Name</label>
-            <input type="text" id="name">
-            <label for="width">Width</label>
-            <input type="text" id="width">
-            <label for="length">Length</label>
-            <input type="text" id="length">
-            <label for="category">Category</label>
-            <select id="category">
-                @foreach($categories as $category)
-                    <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
-                @endforeach
-            </select>
-            <a href="#">Save</a>
-        </form>
+        <div class="form-fields hide">
+            <form>
+                <h2>New item</h2>
+                <label for="name">Name</label>
+                <input type="text" id="name">
+                <label for="width">Width</label>
+                <input type="text" id="width">
+                <label for="length">Length</label>
+                <input type="text" id="length">
+                <label for="category">Category</label>
+                <select id="category">
+                    @foreach($categories as $category)
+                        <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+                    @endforeach
+                </select>
+                <button>Save</button>
+            </form>
+        </div>
     </div>
 @stop

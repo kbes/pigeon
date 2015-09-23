@@ -4,20 +4,30 @@ a {
 
 nav {
     float: left;
-    margin-bottom: 25px;
 
     li {
         display: inline-block;
         margin-right: 20px;
+
+        a {
+            font-size: 2rem;
+        }
     }
 }
 
 ul {
     list-style-type: none;
+    padding-left: 0;
 }
 
 .logout {
     float:right;
+    font-size: 2rem;
+}
+
+.content {
+    border-top: 1px solid darkgrey;
+    margin-top: 50px;
 }
 
 .trips {
@@ -49,6 +59,41 @@ ul {
             width: 10%;
         }
     }
+
+    input {
+        display: block;
+        width: 60%;
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+    }
+
+    img {
+        display: block;
+    }
+
+    .boats-title {
+        float: left;
+        margin-top: 0;
+    }
+    .new-boat {
+        float:right;
+    }
+
+    .boat-actions {
+        border-top: 1px solid darkgrey;
+        margin-top: 25px;
+        padding-top: 25px;
+
+        .send-login {
+            float: left;
+        }
+        .save-boat {
+            float: right;
+        }
+    }
 }
 
 .cargo {
@@ -61,10 +106,6 @@ ul {
             margin-top: 21px;
             float: right;
         }
-    }
-
-    .category-list {
-        padding-left: 0;
     }
 
     table {

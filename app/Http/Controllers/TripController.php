@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Data\Trip\Contracts\TripInterface;
+use Auth;
 use View;
 
 class TripController extends Controller
@@ -32,7 +33,14 @@ class TripController extends Controller
      */
     public function getIndex()
     {
-        $allTrips = $this->trips->get();
+        $allTrips = $this->trips->orderBy('id', 'DESC')->get();
+
+        // Filter user-related
+        foreach ($allTrips as $key => $trip) {
+            if ($trip->boat->user_id != Auth::user()->id) {
+                unset($allTrips[$key]);
+            }
+        }
 
         return View::make('trips.index')
             ->with('trips', $allTrips);

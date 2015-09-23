@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Data\Boat\Contracts\BoatInterface;
+use Auth;
+use Illuminate\Http\Request;
 use Input;
 use View;
 
@@ -33,7 +34,7 @@ class BoatController extends Controller
      */
     public function getIndex()
     {
-        $allBoats = $this->boats->get();
+        $allBoats = $this->boats->where('user_id', '=', Auth::user()->id)->get();
 
         return View::make('boats.index')
             ->with('boats', $allBoats);

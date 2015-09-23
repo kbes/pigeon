@@ -2,17 +2,24 @@ a {
   font-size: 1.7rem; }
 
 nav {
-  float: left;
-  margin-bottom: 25px; }
+  float: left; }
   nav li {
     display: inline-block;
     margin-right: 20px; }
+    nav li a {
+      font-size: 2rem; }
 
 ul {
-  list-style-type: none; }
+  list-style-type: none;
+  padding-left: 0; }
 
 .logout {
-  float: right; }
+  float: right;
+  font-size: 2rem; }
+
+.content {
+  border-top: 1px solid darkgrey;
+  margin-top: 50px; }
 
 .trips table .id {
   width: 5%; }
@@ -35,6 +42,33 @@ ul {
 .boats table .edit {
   width: 10%; }
 
+.boats input {
+  display: block;
+  width: 60%;
+  margin-bottom: 15px; }
+
+.boats label {
+  display: block; }
+
+.boats img {
+  display: block; }
+
+.boats .boats-title {
+  float: left;
+  margin-top: 0; }
+
+.boats .new-boat {
+  float: right; }
+
+.boats .boat-actions {
+  border-top: 1px solid darkgrey;
+  margin-top: 25px;
+  padding-top: 25px; }
+  .boats .boat-actions .send-login {
+    float: left; }
+  .boats .boat-actions .save-boat {
+    float: right; }
+
 .cargo .items .category-title {
   display: inline-block;
   float: left; }
@@ -42,9 +76,6 @@ ul {
 .cargo .items .category-actions {
   margin-top: 21px;
   float: right; }
-
-.cargo .category-list {
-  padding-left: 0; }
 
 .cargo table .id {
   width: 5%; }

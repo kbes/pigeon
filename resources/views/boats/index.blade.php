@@ -1,9 +1,9 @@
 @extends('layouts.master')
 @section('content')
     <div class="boats">
-        <h2>Boats</h2>
+        <h2 class="boats-title">Boats</h2>
 
-        <a href="{{ url('boats/new') }}">New boat</a>
+        <a href="{{ url('boats/new') }}" class="new-boat">New boat</a>
 
         <table class="table table-hover">
             <thead>

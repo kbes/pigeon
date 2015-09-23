@@ -7,7 +7,7 @@
             <div class="col-sm-3">
                 <h3>Categories</h3>
 
-                <ul class="category-list">
+                <ul>
                     <li>
                         <a href="#">All</a>
                     </li>

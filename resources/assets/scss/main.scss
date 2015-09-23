@@ -1,3 +1,42 @@
-body {
-    background: white;
+a {
+    font-size: 1.7rem;
+}
+
+nav {
+    float: left;
+    margin-bottom: 25px;
+
+    li {
+        display: inline-block;
+        margin-right: 20px;
+    }
+}
+
+ul {
+    list-style-type: none;
+}
+
+.logout {
+    float:right;
+}
+
+.trips-table {
+    .id {
+        width: 5%;
+    }
+    .boat {
+        width: 10%;
+    }
+    .base {
+        width: 10%;
+    }
+    .route {
+        width: 50%;
+    }
+    .updated {
+        width: 15%;
+    }
+    .view {
+        width: 10%;
+    }
 }

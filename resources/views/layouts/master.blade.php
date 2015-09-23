@@ -9,37 +9,42 @@
         <link rel="stylesheet" type="text/css" href="/css/bs-theme/toolkit-light.min.css">
     </head>
     <body>
-        <h1>Pigeon</h1>
+        <div class="container">
+            <div class="row">
+                <h1>Pigeon</h1>
+                <div class="col-sm-12">
+                    <nav>
+                        <ul>
+                            <li>
+                                <a href="{{ url('trips/index') }}">
+                                    Trips
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('boats/index') }}">
+                                    Boats
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('cargo') }}">
+                                    Cargo
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('settings/index') }}">
+                                    Settings
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <a href="{{ url('auth/logout') }}" class="logout">Logout</a>
+                </div>
+                <div class="content">
+                    @yield('content')
+                </div>
 
-        <navigation>
-            <ul>
-                <li>
-                    <a href="{{ url('trips/index') }}">
-                        Trips
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('boats/index') }}">
-                        Boats
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('cargo') }}">
-                        Cargo
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ url('settings/index') }}">
-                        Settings
-                    </a>
-                </li>
-            </ul>
-            <a href="{{ url('auth/logout') }}">Logout</a>
-        </navigation>
-        <div class="content">
-            @yield('content')
+                <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+            </div>
         </div>
-
-        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     </body>
 </html>

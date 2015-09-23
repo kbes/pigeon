@@ -20,7 +20,7 @@
     <h3>All</h3>
     <a href="#">Edit category</a>
     <a href="#">New item</a>
-    <table>
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>ID</th>

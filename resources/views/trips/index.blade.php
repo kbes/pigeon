@@ -2,24 +2,24 @@
 @section('content')
     <h2>Trips</h2>
 
-    <table class="table-grid">
+    <table class="table table-hover trips-table">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Boat</th>
-                <th>Base</th>
-                <th>Route</th>
-                <th>Last updated</th>
-                <th>View</th>
+                <th class="id">ID</th>
+                <th class="boat">Boat</th>
+                <th class="base">Base</th>
+                <th class="route">Route</th>
+                <th class="updated">Last updated</th>
+                <th class="view">View</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($trips as $trip)
             <tr>
-                <td>{{ $trip->id }}</td>
-                <td>{{ $trip->boat->name }}</td>
-                <td>{{ $trip->route->first()->subdestination_id }}</td>
-                <td>
+                <td class="id">{{ $trip->id }}</td>
+                <td class="boat">{{ $trip->boat->name }}</td>
+                <td class="base">{{ $trip->route->first()->subdestination->name }}</td>
+                <td class="route">
                     @foreach($trip->route as $i => $subdestination)
                         @if ($i != 0)
                                 {{ $subdestination->subdestination->name }}
@@ -29,8 +29,8 @@
                         @endif
                     @endforeach
                 </td>
-                <td>{{ $trip->updated_at }}</td>
-                <td><a href="{{ url('boats/' . $trip->boat->id) }}">View deck</a></td>
+                <td class="updated">{{ $trip->updated_at }}</td>
+                <td class="view"><a href="{{ url('boats/' . $trip->boat->id) }}">View deck</a></td>
             </tr>
             @endforeach
         </tbody>

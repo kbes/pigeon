@@ -1,2 +1,33 @@
-body {
-  background: white; }
+a {
+  font-size: 1.7rem; }
+
+nav {
+  float: left;
+  margin-bottom: 25px; }
+  nav li {
+    display: inline-block;
+    margin-right: 20px; }
+
+ul {
+  list-style-type: none; }
+
+.logout {
+  float: right; }
+
+.trips-table .id {
+  width: 5%; }
+
+.trips-table .boat {
+  width: 10%; }
+
+.trips-table .base {
+  width: 10%; }
+
+.trips-table .route {
+  width: 50%; }
+
+.trips-table .updated {
+  width: 15%; }
+
+.trips-table .view {
+  width: 10%; }

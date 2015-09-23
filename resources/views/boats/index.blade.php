@@ -4,7 +4,7 @@
 
     <a href="{{ url('boats/new') }}">New boat</a>
 
-    <table>
+    <table class="table table-hover">
         <thead>
             <tr>
                 <th>ID</th>

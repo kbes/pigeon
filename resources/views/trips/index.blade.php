@@ -22,9 +22,7 @@
                 <td class="no-whitespace">
                     @foreach($trip->route as $i => $subdestination)
                         @if ($i != 0)
-                            <a href="">
                                 {{ $subdestination->subdestination->name }}
-                            </a>
                             @if ($i != sizeof($trip->route)-1)
                                 -
                             @endif

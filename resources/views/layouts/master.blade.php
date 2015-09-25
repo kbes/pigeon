@@ -47,7 +47,7 @@
                 <script type="text/javascript" src="{{ url('js/jquery-1.11.2.min.js') }}"></script>
                 <script type="text/javascript" src="{{ url('js/list.min.js') }}"></script>
                 <script type="text/javascript" src="{{ url('js/jquery.magnific-popup.js') }}"></script>
-                {{--<script type="text/javascript" src="{{ url('js/list.pagination.js') }}"></script>--}}
+                <script type="text/javascript" src="{{ url('js/list.pagination.js') }}"></script>
                 <script type="text/javascript" src="{{ url('js/bundle.js') }}?v={{ filemtime(public_path() . '/js/bundle.js')  }}"></script>
             </div>
         </div>

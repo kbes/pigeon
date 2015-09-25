@@ -106,17 +106,17 @@ label {
 .cargo table .edit {
   width: 15%; }
 
-.new-item {
+.modal-box {
   background-color: white;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
   padding: 0 15px; }
-  .new-item .modal-header {
+  .modal-box .modal-header {
     margin-bottom: 15px;
     padding: 15px 0; }
-  .new-item .modal-footer {
+  .modal-box .modal-footer {
     margin-top: 15px;
     padding: 15px 0; }
-    .new-item .modal-footer .cancel {
+    .modal-box .modal-footer .cancel, .modal-box .modal-footer .delete {
       float: left; }

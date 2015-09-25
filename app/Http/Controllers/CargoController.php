@@ -7,6 +7,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Data\Cargo\Contracts\CargoInterface;
 use App\Data\Category\Contracts\CategoryInterface;
+use Input;
+use Response;
 use View;
 
 class CargoController extends Controller
@@ -49,12 +51,14 @@ class CargoController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
+     * Fetch item specs
      */
-    public function create()
+    public function postItem()
     {
-        //
+        $id = Input::get('id');
+
+        $item = $this->cargo->find($id);
+
+        return Response::json(['item' => $item], 200);
     }
 }

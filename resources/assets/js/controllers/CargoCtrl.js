@@ -1,10 +1,16 @@
 'use strict';
 
-window.BaseCtrl = {
+window.CargoCtrl = {
     _construct: function () {
         var self = this;
         self.initCategoryList();
         self.initNewItem();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
     },
 
     initCategoryList: function() {
@@ -40,14 +46,12 @@ window.BaseCtrl = {
                         return true;
                     });
                 }
-            };
+            }
         });
     },
 
     initNewItem: function() {
         $('.new-item-button').click(function (event) {
-            event.preventDefault();
-
             $.magnificPopup.open({
                 items: {
                     src: $('.new-item'),
@@ -56,6 +60,30 @@ window.BaseCtrl = {
                 showCloseBtn: true,
                 closeOnBgClick: true
             });
+        });
+    },
+
+    editItem: function(id) {
+        $.post('/cargo/item',{
+            'id': id
+        }).success(function(response) {
+            console.log(response.item);
+            var item = response.item;
+            $('.edit-item #name').val(item.name);
+            $('.edit-item #width').val(item.width);
+            $('.edit-item #length').val(item.length);
+            $('.edit-item #category').val(item.category_id);
+
+            $.magnificPopup.open({
+                items: {
+                    src: $('.edit-item'),
+                    type: 'inline'
+                },
+                showCloseBtn: true,
+                closeOnBgClick: true
+            });
+        }).error(function(response) {
+            console.log('no');
         });
     }
 }

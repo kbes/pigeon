@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('content')
-    <div class="cargo">
+    <div class="cargo" data-scope="CargoCtrl">
         <h2>Cargo</h2>
 
         <div class="row">
@@ -17,7 +17,7 @@
                         </li>
                     @endforeach
                 </ul>
-                <button>New category</button>
+                <button class="btn">New category</button>
             </div>
 
             <div class="col-sm-9" id="items">
@@ -25,8 +25,8 @@
                     <h3>Items</h3>
                 </span>
                 <span class="category-actions">
-                    <button>Edit category</button>
-                    <button class="new-item-button">New item</button>
+                    <button class="btn">Edit category</button>
+                    <button class="btn new-item-button">New item</button>
                 </span>
                 <table class="table table-hover">
                     <thead>
@@ -34,7 +34,7 @@
                             <th class="id">ID</th>
                             <th class="category hide">Category</th>
                             <th class="name">Name</th>
-                            <th class="edit">Edit</th>
+                            <th class="edit"></th>
                         </tr>
                     </thead>
                     <tbody class="list">
@@ -43,7 +43,7 @@
                             <td class="id">{{ $item->id }}</td>
                             <td class="category hide">{{ $item->category->name }}</td>
                             <td class="name">{{ $item->name }}</td>
-                            <td class="edit"><a href="{{ url('cargo/edit/' . $item->id) }}">Edit item</a></td>
+                            <td class="edit"><button class="btn" data-function="editItem({{ $item->id }})">Edit item</button></td>
                         </tr>
                         @endforeach
                     </tbody>
@@ -56,28 +56,8 @@
                 <h2>Edit category</h2>
                 <label for="name">Name</label>
                 <input type="text" id="name">
-                <button>Delete</button>
-                <button>Save</button>
-            </form>
-        </div>
-
-        <div id="edit-item" class="form-fields hide">
-            <form>
-                <h2>Edit item</h2>
-                <label for="name">Name</label>
-                <input type="text" id="name">
-                <label for="width">Width</label>
-                <input type="text" id="width">
-                <label for="length">Length</label>
-                <input type="text" id="length">
-                <label for="category">Category</label>
-                <select id="category">
-                    @foreach($categories as $category)
-                        <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
-                    @endforeach
-                </select>
-                <button>Delete</button>
-                <button>Save</button>
+                <button class="btn">Delete</button>
+                <button class="btn">Save</button>
             </form>
         </div>
 
@@ -95,7 +75,7 @@
                 <div class="modal-header">
                     <h2>New item</h2>
                 </div>
-                <div class="">
+                <div>
                     <label for="name">Name</label>
                     <input type="text" id="name">
                     <label for="width">Width</label>
@@ -103,17 +83,43 @@
                     <label for="length">Length</label>
                     <input type="text" id="length">
                     <label for="category">Category</label>
-                    <select id="category">
+                    <select id="category" class="form-control">
                         @foreach($categories as $category)
                             <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
                         @endforeach
                     </select>
                 </div>
                 <div class="modal-footer">
-                    <button class="cancel">Cancel</button>
-                    <button class="submit">Save</button>
+                    <button class="btn cancel">Cancel</button>
+                    <button class="btn submit">Save</button>
                 </div>
             </form>
         </div>
+    </div>
+
+    <div class="edit-item form-fields modal-box mfp-hide">
+        <form>
+            <div class="modal-header">
+                <h2>Edit item</h2>
+            </div>
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name">
+                <label for="width">Width</label>
+                <input type="text" id="width">
+                <label for="length">Length</label>
+                <input type="text" id="length">
+                <label for="category">Category</label>
+                <select id="category" class="form-control">
+                    @foreach($categories as $category)
+                        <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button class="btn delete">Delete</button>
+                <button class="btn submit">Save</button>
+            </div>
+        </form>
     </div>
 @stop

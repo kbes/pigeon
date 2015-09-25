@@ -31,7 +31,7 @@
                         @endforeach
                     </td>
                     <td class="updated">{{ $trip->updated_at }}</td>
-                    <td class="view"><a href="{{ url('boats/' . $trip->boat->id) }}">View deck</a></td>
+                    <td class="view"><button class="btn" data-function="{{ url('boats/' . $trip->boat->id) }}">View deck</button></td>
                 </tr>
                 @endforeach
             </tbody>

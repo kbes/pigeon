@@ -24,7 +24,7 @@
                     <input type="text" id="width" value="{{ $boat['width'] }}">
                     <label for="length">Deck length</label>
                     <input type="text" id="length" value="{{ $boat['length'] }}">
-                    <img src="#">
+                    <img class="deck-image" src="{{ url('/') }}/uploads/{{ $boat['id'] }}.jpg">
                     <button class="drag-deck">Drag the deck</button>
                 </fieldset>
             </div>

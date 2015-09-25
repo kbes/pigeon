@@ -19,12 +19,29 @@ class BoatController extends Controller
     private $boats;
 
     /**
+     * Path for temporarily storing images before saving them
+     *
+     * @var string
+     */
+    private $tempUploadPath;
+
+    /**
+     * Path for saving images
+     *
+     * @var string
+     */
+    private $uploadPath;
+
+    /**
      * @param App\Data\Boat\Contracts\BoatInterface $boats
      */
     public function __construct(BoatInterface $boats)
     {
         $this->middleware('auth');
         $this->boats = $boats;
+
+        $this->tempUploadPath = public_path() . '/temp_uploads/';
+        $this->tempUploadPath = public_path() . '/uploads/';
     }
 
     /**

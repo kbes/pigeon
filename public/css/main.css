@@ -50,8 +50,9 @@ ul {
 .boats label {
   display: block; }
 
-.boats img {
-  display: block; }
+.boats .deck-image {
+  display: block;
+  max-width: 100%; }
 
 .boats .boats-title {
   float: left;

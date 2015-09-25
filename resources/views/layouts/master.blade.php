@@ -5,8 +5,9 @@
         <meta name="description" content="@TODO insert descrip">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="csrf-token" content="{{ Session::token() }}">
-        <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">
         <link rel="stylesheet" type="text/css" href="{{ url('css/bs-theme/toolkit-light.min.css') }}">
+        <link rel="stylesheet" href="{{ url('css/magnific-popup.css') }}">
+        <link rel="stylesheet" type="text/css" href="{{ url('css/main.css') }}">
     </head>
     <body data-controller="BaseCtrl" data-scope="BaseCtrl">
         <div class="container">
@@ -45,6 +46,7 @@
 
                 <script type="text/javascript" src="{{ url('js/jquery-1.11.2.min.js') }}"></script>
                 <script type="text/javascript" src="{{ url('js/list.min.js') }}"></script>
+                <script type="text/javascript" src="{{ url('js/jquery.magnific-popup.js') }}"></script>
                 {{--<script type="text/javascript" src="{{ url('js/list.pagination.js') }}"></script>--}}
                 <script type="text/javascript" src="{{ url('js/bundle.js') }}?v={{ filemtime(public_path() . '/js/bundle.js')  }}"></script>
             </div>

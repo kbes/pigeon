@@ -4,6 +4,7 @@ window.BaseCtrl = {
     _construct: function () {
         var self = this;
         self.initCategoryList();
+        self.initNewItem();
     },
 
     initCategoryList: function() {
@@ -40,6 +41,21 @@ window.BaseCtrl = {
                     });
                 }
             };
+        });
+    },
+
+    initNewItem: function() {
+        $('.new-item-button').click(function (event) {
+            event.preventDefault();
+
+            $.magnificPopup.open({
+                items: {
+                    src: $('.new-item'),
+                    type: 'inline'
+                },
+                showCloseBtn: true,
+                closeOnBgClick: true
+            });
         });
     }
 }

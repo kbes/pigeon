@@ -21,20 +21,24 @@ ul {
     padding-left: 0;
 }
 
+input {
+    display: block;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+}
+
 .login {
     padding: 15px 0;
-    input {
-        display: block;
-        width: 20%;
-        margin-bottom: 15px;
-    }
-
-    label {
-        display: block;
-    }
 
     .submit {
         margin-top: 20px;
+    }
+
+    input {
+        width: 20%;
     }
 }
 
@@ -80,18 +84,13 @@ ul {
     }
 
     input {
-        display: block;
         width: 60%;
-        margin-bottom: 15px;
-    }
-
-    label {
-        display: block;
     }
 
     .deck-image {
         display: block;
         max-width: 100%;
+        margin: 15px 0;
     }
 
     .boats-title {
@@ -149,6 +148,29 @@ ul {
         }
         .edit {
             width: 15%;
+        }
+    }
+
+}
+
+.new-item {
+    background-color: white;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 15px;
+
+    .modal-header {
+        margin-bottom: 15px;
+        padding: 15px 0;
+    }
+
+    .modal-footer {
+        margin-top: 15px;
+        padding: 15px 0;
+
+        .cancel {
+            float: left;
         }
     }
 }

@@ -1,5 +1,7 @@
 @extends('layouts.master')
 @section('content')
+    @include('mst_templates.new_item_row')
+
     <div class="cargo" data-scope="CargoCtrl">
         <h2>Cargo</h2>
 
@@ -79,9 +81,9 @@
                     <label for="name">Name</label>
                     <input type="text" id="name">
                     <label for="width">Width</label>
-                    <input type="text" id="width">
+                    <input type="text" id="width" class="numeric">
                     <label for="length">Length</label>
-                    <input type="text" id="length">
+                    <input type="text" id="length" class="numeric">
                     <label for="category">Category</label>
                     <select id="category" class="form-control">
                         @foreach($categories as $category)
@@ -91,7 +93,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn cancel">Cancel</button>
-                    <button class="btn submit">Save</button>
+                    <button class="btn submit" data-function="saveItem()">Save</button>
                 </div>
             </form>
         </div>
@@ -107,9 +109,9 @@
                 <label for="name">Name</label>
                 <input type="text" id="name">
                 <label for="width">Width</label>
-                <input type="text" id="width">
+                <input type="text" id="width" class="numeric">
                 <label for="length">Length</label>
-                <input type="text" id="length">
+                <input type="text" id="length" class="numeric">
                 <label for="category">Category</label>
                 <select id="category" class="form-control">
                     @foreach($categories as $category)

@@ -48,6 +48,7 @@
                 <script type="text/javascript" src="{{ url('js/list.min.js') }}"></script>
                 <script type="text/javascript" src="{{ url('js/jquery.magnific-popup.js') }}"></script>
                 <script type="text/javascript" src="{{ url('js/list.pagination.js') }}"></script>
+                <script type="text/javascript" src="{{ url('js/mustache.min.js') }}"></script>
                 <script type="text/javascript" src="{{ url('js/bundle.js') }}?v={{ filemtime(public_path() . '/js/bundle.js')  }}"></script>
             </div>
         </div>

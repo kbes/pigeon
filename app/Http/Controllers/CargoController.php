@@ -69,12 +69,19 @@ class CargoController extends Controller
     {
         $data = Input::get('data');
 
+        $id = null;
         if ($data['id']) {
             $this->cargo->update($data['id'], $data);
+            $new = false;
         } else {
-            $this->cargo->create($data);
+            $item = $this->cargo->create($data);
+            $new = true;
         }
 
-        return Response::json(['item' => $data], 200);
+        return Response::json([
+            'item' => $data,
+            'id'   => $item['id'],
+            'new'  => $new
+        ], 200);
     }
 }

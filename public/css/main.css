@@ -2,7 +2,8 @@ a {
   font-size: 1.7rem; }
 
 nav {
-  float: left; }
+  float: left;
+  margin-left: -15px; }
   nav li {
     display: inline-block;
     margin-right: 20px; }
@@ -13,9 +14,21 @@ ul {
   list-style-type: none;
   padding-left: 0; }
 
+.login {
+  padding: 15px 0; }
+  .login input {
+    display: block;
+    width: 20%;
+    margin-bottom: 15px; }
+  .login label {
+    display: block; }
+  .login .submit {
+    margin-top: 20px; }
+
 .logout {
   float: right;
-  font-size: 2rem; }
+  font-size: 2rem;
+  margin-right: -15px; }
 
 .content {
   border-top: 1px solid darkgrey;
@@ -55,11 +68,11 @@ ul {
   max-width: 100%; }
 
 .boats .boats-title {
-  float: left;
-  margin-top: 0; }
+  float: left; }
 
 .boats .new-boat {
-  float: right; }
+  float: right;
+  margin-top: 25px; }
 
 .boats .boat-actions {
   border-top: 1px solid darkgrey;

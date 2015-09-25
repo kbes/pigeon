@@ -4,6 +4,7 @@ a {
 
 nav {
     float: left;
+    margin-left: -15px;
 
     li {
         display: inline-block;
@@ -20,9 +21,27 @@ ul {
     padding-left: 0;
 }
 
+.login {
+    padding: 15px 0;
+    input {
+        display: block;
+        width: 20%;
+        margin-bottom: 15px;
+    }
+
+    label {
+        display: block;
+    }
+
+    .submit {
+        margin-top: 20px;
+    }
+}
+
 .logout {
     float:right;
     font-size: 2rem;
+    margin-right: -15px;
 }
 
 .content {
@@ -77,10 +96,10 @@ ul {
 
     .boats-title {
         float: left;
-        margin-top: 0;
     }
     .new-boat {
         float:right;
+        margin-top: 25px;
     }
 
     .boat-actions {

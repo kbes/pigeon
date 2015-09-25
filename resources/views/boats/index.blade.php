@@ -3,7 +3,7 @@
     <div class="boats">
         <h2 class="boats-title">Boats</h2>
 
-        <a href="{{ url('boats/new') }}" class="new-boat">New boat</a>
+        <button class="new-boat">New boat</button>
 
         <table class="table table-hover">
             <thead>

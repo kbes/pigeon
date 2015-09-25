@@ -39,7 +39,7 @@
                     </thead>
                     <tbody class="list">
                         @foreach ($allCargo as $item)
-                        <tr>
+                        <tr data-id="{{ $item->id }}">
                             <td class="id">{{ $item->id }}</td>
                             <td class="category hide">{{ $item->category->name }}</td>
                             <td class="name">{{ $item->name }}</td>
@@ -51,7 +51,7 @@
             </div>
         </div>
 
-        <div id="edit-category" class="form-fields modal-box hide">
+        <div id="edit-category" class="form-fields modal-box hide" data-scope="CargoCtrl">
             <form>
                 <h2>Edit category</h2>
                 <label for="name">Name</label>
@@ -61,7 +61,7 @@
             </form>
         </div>
 
-        <div id="new-category" class="form-fields hide">
+        <div id="new-category" class="form-fields hide" data-scope="CargoCtrl">
             <form>
                 <h2>New category</h2>
                 <label for="name">Name</label>
@@ -70,7 +70,7 @@
             </form>
         </div>
 
-        <div class="new-item form-fields modal-box mfp-hide">
+        <div class="new-item form-fields modal-box mfp-hide" data-scope="CargoCtrl">
             <form>
                 <div class="modal-header">
                     <h2>New item</h2>
@@ -97,12 +97,13 @@
         </div>
     </div>
 
-    <div class="edit-item form-fields modal-box mfp-hide">
+    <div class="edit-item form-fields modal-box mfp-hide" data-scope="CargoCtrl">
         <form>
             <div class="modal-header">
                 <h2>Edit item</h2>
             </div>
             <div>
+                <span class="item-id hide"></span>
                 <label for="name">Name</label>
                 <input type="text" id="name">
                 <label for="width">Width</label>
@@ -118,7 +119,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn delete">Delete</button>
-                <button class="btn submit">Save</button>
+                <button class="btn submit" data-function="saveItem()">Save</button>
             </div>
         </form>
     </div>

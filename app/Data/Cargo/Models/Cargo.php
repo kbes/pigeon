@@ -10,8 +10,9 @@ class Cargo extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['name', 'width', 'length', 'category_id'];
     protected $table = 'cargo';
+    public $timestamps = false;
 
     public function category()
     {

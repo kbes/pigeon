@@ -61,4 +61,20 @@ class CargoController extends Controller
 
         return Response::json(['item' => $item], 200);
     }
+
+    /**
+     * Save or update depending on present item id
+     */
+    public function postSaveItem()
+    {
+        $data = Input::get('data');
+
+        if ($data['id']) {
+            $this->cargo->update($data['id'], $data);
+        } else {
+            $this->cargo->create($data);
+        }
+
+        return Response::json(['item' => $data], 200);
+    }
 }

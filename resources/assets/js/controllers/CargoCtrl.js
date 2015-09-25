@@ -67,8 +67,8 @@ window.CargoCtrl = {
         $.post('/cargo/item',{
             'id': id
         }).success(function(response) {
-            console.log(response.item);
             var item = response.item;
+            $('.item-id').html(item.id);
             $('.edit-item #name').val(item.name);
             $('.edit-item #width').val(item.width);
             $('.edit-item #length').val(item.length);
@@ -85,5 +85,30 @@ window.CargoCtrl = {
         }).error(function(response) {
             console.log('no');
         });
+    },
+
+    saveItem: function() {
+        var self = this,
+            data = {
+            id: $('.item-id').html(),
+            name: $('#name').val(),
+            width: $('#width').val(),
+            length: $('#length').val(),
+            category_id: $('#category').val()
+        };
+
+        $.post('cargo/save-item', {
+            data: data
+        }).success(function (response) {
+            $('tr[data-id="' + data.id + '"] .name').html(data.name);
+            self.closePopups();
+        })
+        .error(function(response) {
+            console.log(response);
+        });
+    },
+
+    closePopups: function() {
+        $.magnificPopup.close();
     }
 }

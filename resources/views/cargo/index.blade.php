@@ -7,22 +7,20 @@
             <div class="col-sm-3">
                 <h3>Categories</h3>
 
-                <ul>
+                <ul class="category-list">
                     <li>
-                        <a href="#">All</a>
+                        <a href="#" class="active">All</a>
                     </li>
                     @foreach ($categories as $category)
                         <li>
-                            <a href="">
-                                {{ $category->name }}
-                            </a>
+                            <a href="#">{{ $category->name }}</a>
                         </li>
                     @endforeach
                 </ul>
                 <button>New category</button>
             </div>
 
-            <div class="col-sm-9 items">
+            <div class="col-sm-9" id="items">
                 <span class="category-title">
                     <h3>Items</h3>
                 </span>
@@ -34,15 +32,17 @@
                     <thead>
                         <tr>
                             <th class="id">ID</th>
+                            <th class="category hide">Category</th>
                             <th class="name">Name</th>
                             <th class="edit">Edit</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="list">
                         @foreach ($allCargo as $item)
                         <tr>
                             <td class="id">{{ $item->id }}</td>
-                            <td class="name">{{ $item->category->name }}</td>
+                            <td class="category hide">{{ $item->category->name }}</td>
+                            <td class="name">{{ $item->name }}</td>
                             <td class="edit"><a href="{{ url('cargo/edit/' . $item->id) }}">Edit item</a></td>
                         </tr>
                         @endforeach

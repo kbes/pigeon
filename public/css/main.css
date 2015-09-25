@@ -83,11 +83,18 @@ ul {
   .boats .boat-actions .save-boat {
     float: right; }
 
-.cargo .items .category-title {
+.cargo .category-list .active {
+  color: black;
+  text-decoration: none;
+  cursor: default; }
+  .cargo .category-list .active:hover {
+    color: black; }
+
+.cargo #items .category-title {
   display: inline-block;
   float: left; }
 
-.cargo .items .category-actions {
+.cargo #items .category-actions {
   margin-top: 21px;
   float: right; }
 
@@ -95,7 +102,7 @@ ul {
   width: 5%; }
 
 .cargo table .name {
-  width: 85%; }
+  width: 80%; }
 
 .cargo table .edit {
-  width: 10%; }
+  width: 15%; }

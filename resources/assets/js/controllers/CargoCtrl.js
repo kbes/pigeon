@@ -42,10 +42,14 @@ window.CargoCtrl = {
 
                         return false;
                     });
+
+                    $('.edit-category').removeClass('hide');
                 } else {
                     itemsList.filter(function (item) {
                         return true;
                     });
+
+                    $('.edit-category').addClass('hide');
                 }
             }
         });
@@ -142,6 +146,9 @@ window.CargoCtrl = {
         .error(function(response) {
             console.log(response);
         });
+    },
+    deleteItem: function(id) {
+
     },
 
     closePopups: function() {

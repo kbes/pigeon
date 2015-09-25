@@ -27,7 +27,7 @@
                     <h3>Items</h3>
                 </span>
                 <span class="category-actions">
-                    <button class="btn">Edit category</button>
+                    <button class="btn edit-category hide">Edit category</button>
                     <button class="btn new-item-button">New item</button>
                 </span>
                 <table class="table table-hover">

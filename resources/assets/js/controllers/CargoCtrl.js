@@ -4,7 +4,6 @@ window.CargoCtrl = {
     _construct: function () {
         var self = this;
         self.initCategoryList();
-        self.initNumericInput();
 
         $.ajaxSetup({
             headers: {
@@ -64,19 +63,6 @@ window.CargoCtrl = {
             },
             showCloseBtn: true,
             closeOnBgClick: true
-        });
-    },
-
-    // Filter user input on numeric fields
-    initNumericInput: function() {
-        $('.numeric').on('input', function (element) {
-            var userValue = parseInt($(this).val());
-
-            if(userValue < 0 || isNaN(userValue)) {
-                $(this).val(0);
-            } else {
-                $(this).val(userValue);
-            }
         });
     },
 

@@ -76,7 +76,8 @@ label {
 .boats .boat-actions {
   border-top: 1px solid darkgrey;
   margin-top: 25px;
-  padding-top: 25px; }
+  padding-top: 25px;
+  margin-bottom: 25px; }
   .boats .boat-actions .send-login {
     float: left; }
   .boats .boat-actions .save-boat {

@@ -8,6 +8,7 @@ use App\Data\Boat\Contracts\BoatInterface;
 use Auth;
 use Illuminate\Http\Request;
 use Input;
+use Response;
 use View;
 
 class BoatController extends Controller
@@ -57,16 +58,46 @@ class BoatController extends Controller
             ->with('boats', $allBoats);
     }
 
+    /**
+     * Create new boat
+     *
+     * @return mixed
+     */
     public function getNew()
     {
         return View::make('boats.new');
     }
 
+    /**
+     * Edit specified boat
+     *
+     * @param $id
+     * @return mixed
+     */
     public function getEdit($id)
     {
         $boat = $this->boats->find($id);
 
         return View::make('boats.edit')
             ->with('boat', $boat);
+    }
+
+    /**
+     * Save created boat
+     */
+    public function getSave()
+    {
+
+    }
+
+    /**
+     * Update edited boat
+     */
+    public function postUpdateBoat()
+    {
+        $data = Input::get('data');
+        $this->boats->update($data['id'], $data);
+
+        return Response::json([], 200);
     }
 }

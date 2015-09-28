@@ -10,11 +10,12 @@ class Boat extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['name', 'width', 'length', 'password'];
+
+    public $timestamps = false;
 
     public function trips()
     {
         return $this->hasMany('App\Data\Trip\Models\Trip');
     }
-
 }

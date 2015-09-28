@@ -42,7 +42,7 @@ class BoatController extends Controller
         $this->boats = $boats;
 
         $this->tempUploadPath = public_path() . '/temp_uploads/';
-        $this->tempUploadPath = public_path() . '/uploads/';
+        $this->uploadPath = public_path() . '/uploads/';
     }
 
     /**
@@ -102,10 +102,27 @@ class BoatController extends Controller
         $data = Input::get('data');
         if ($data['password']) {
             $data['password'] = Hash::make($data['password']);
+            if (Input::get('image')) {
+
+            }
         }
 
         $this->boats->update($data['id'], $data);
 
         return Response::json([], 200);
+    }
+
+    public function postUploadImage(Request $request)
+    {
+        if ($request->hasFile('image') && $request->file('image')->isValid()) {
+            $file = $request->file('image');
+            $fileName = $file->getClientOriginalName();
+            $file->move($this->tempUploadPath, $fileName);
+        }
+
+        return Response::json([
+            'filename' => $fileName,
+            'filepath' => $this->tempUploadPath
+        ], 200);
     }
 }

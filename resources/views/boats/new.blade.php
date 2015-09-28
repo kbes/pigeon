@@ -20,8 +20,7 @@
                     <input type="text" id="length" class="numeric">
                     <label for="image">Upload deck image</label>
                     <input type="file" id="image">
-                    <div>
-                        <img src="#">
+                    <div class="deck-image">
                     </div>
                     <button class="btn" href="#">Drag the deck</button>
                 </fieldset>

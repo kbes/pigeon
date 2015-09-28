@@ -22,7 +22,6 @@ class TripController extends Controller
      */
     public function __construct(TripInterface $trips)
     {
-        $this->middleware('auth');
         $this->trips = $trips;
     }
 

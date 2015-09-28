@@ -28,5 +28,21 @@ window.BoatCtrl = {
         }).error(function(response) {
 
         });
+    },
+
+    saveBoat: function() {
+        var data = {
+            name: $('#name').val(),
+            width: $('#width').val(),
+            length: $('#length').val()
+        };
+
+        $.post('/boats/save-boat', {
+            data: data
+        }).success(function(response) {
+            console.log(response);
+        }).error(function(response) {
+
+        });
     }
 }

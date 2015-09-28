@@ -1,11 +1,11 @@
 <?php
 
-//Route::post('cargo/item', 'CargoController@postItem');
+Route::group(['middleware' => 'auth'], function() {
+    Route::controller('trips', 'TripController');
+    Route::controller('cargo', 'CargoController');
+    Route::controller('boats', 'BoatController');
+    Route::get('boats/edit/{id}', 'BoatController@getEdit');
+});
+
 Route::controller('auth', 'Auth\AuthController');
-Route::controller('boats', 'BoatController');
-Route::controller('trips', 'TripController');
-Route::controller('cargo', 'CargoController');
-
 Route::get('/', 'TripController@getIndex');
-Route::get('boats/edit/{id}', 'BoatController@getEdit');
-

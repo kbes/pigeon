@@ -30,7 +30,6 @@ class CargoController extends Controller
      */
     public function __construct(CargoInterface $cargo, CategoryInterface $categories)
     {
-        $this->middleware('auth');
         $this->cargo = $cargo;
         $this->categories = $categories;
     }

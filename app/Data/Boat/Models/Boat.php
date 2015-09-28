@@ -10,7 +10,7 @@ class Boat extends Model
      *
      * @var array
      */
-    protected $fillable = ['name', 'width', 'length', 'password'];
+    protected $fillable = ['name', 'width', 'length', 'password', 'user_id'];
 
     public $timestamps = false;
 

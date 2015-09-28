@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Data\Boat\Contracts\BoatInterface;
 use Auth;
+use Hash;
 use Illuminate\Http\Request;
 use Input;
 use Response;
@@ -38,7 +39,6 @@ class BoatController extends Controller
      */
     public function __construct(BoatInterface $boats)
     {
-        $this->middleware('auth');
         $this->boats = $boats;
 
         $this->tempUploadPath = public_path() . '/temp_uploads/';
@@ -85,9 +85,13 @@ class BoatController extends Controller
     /**
      * Save created boat
      */
-    public function getSave()
+    public function postSaveBoat()
     {
+        $data = Input::get('data');
+        $data['user_id'] = Auth::user()->id;
+        $this->boats->create($data);
 
+        return Response::json(['id' => $data['user_id']], 200);
     }
 
     /**
@@ -96,6 +100,10 @@ class BoatController extends Controller
     public function postUpdateBoat()
     {
         $data = Input::get('data');
+        if ($data['password']) {
+            $data['password'] = Hash::make($data['password']);
+        }
+
         $this->boats->update($data['id'], $data);
 
         return Response::json([], 200);

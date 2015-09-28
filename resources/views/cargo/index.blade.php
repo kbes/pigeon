@@ -15,7 +15,7 @@
                     </li>
                     @foreach ($categories as $category)
                         <li>
-                            <a href="#">{{ $category->name }}</a>
+                            <a href="#" data-id="{{ $category->id }}">{{ $category->name }}</a>
                         </li>
                     @endforeach
                 </ul>
@@ -27,7 +27,7 @@
                     <h3>Items</h3>
                 </span>
                 <span class="category-actions">
-                    <button class="btn edit-category hide">Edit category</button>
+                    <button class="btn edit-category-button hide" data-function="editCategory()">Edit category</button>
                     <button class="btn new-item-button" data-function="newItem()">New item</button>
                 </span>
                 <table class="table table-hover">
@@ -55,11 +55,18 @@
 
         <div class="edit-category form-fields modal-box mfp-hide" data-scope="CargoCtrl">
             <form>
-                <h2>Edit category</h2>
-                <label for="name">Name</label>
-                <input type="text" id="name">
-                <button class="btn">Delete</button>
-                <button class="btn">Save</button>
+                <div class="modal-header">
+                    <h2>Edit category</h2>
+                </div>
+                <div>
+                    <span class="category-id hide"></span>
+                    <label for="name">Name</label>
+                    <input type="text" id="name">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn delete" data-function="deleteCategory()">Delete</button>
+                    <button class="btn submit" data-function="updateCategory()">Save</button>
+                </div>
             </form>
         </div>
 
@@ -73,7 +80,8 @@
                     <input type="text" id="name">
                 </div>
                 <div class="modal-footer">
-                    <button class="btn" data-function="saveCategory()">Save</button>
+                    <button class="btn cancel" data-function="closePopups()">Cancel</button>
+                    <button class="btn save" data-function="saveCategory()">Save</button>
                 </div>
             </form>
         </div>
@@ -98,7 +106,7 @@
                     </select>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn cancel">Cancel</button>
+                    <button class="btn cancel" data-function="closePopups()">Cancel</button>
                     <button class="btn submit" data-function="saveItem()">Save</button>
                 </div>
             </form>
@@ -127,7 +135,7 @@
             </div>
             <div class="modal-footer">
                 <button class="btn delete" data-function="deleteItem()">Delete</button>
-                <button class="btn submit" data-function="saveItem()">Save</button>
+                <button class="btn submit" data-function="updateItem()">Save</button>
             </div>
         </form>
     </div>

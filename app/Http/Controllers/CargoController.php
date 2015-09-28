@@ -63,29 +63,43 @@ class CargoController extends Controller
     }
 
     /**
-     * Save or update depending on present item id
+     * Update edited item
+     */
+    public function postUpdateItem()
+    {
+        $data = Input::get('data');
+        $this->cargo->update($data['id'], $data);
+
+        return Response::json([], 200);
+    }
+
+    /**
+     * Save created item
      */
     public function postSaveItem()
     {
         $data = Input::get('data');
 
-        $id = null;
-        if ($data['id']) {
-            $this->cargo->update($data['id'], $data);
-            $new = false;
-        } else {
-            $item = $this->cargo->create($data);
-            $id = $item['id'];
-            $new = true;
-        }
+        $item = $this->cargo->create($data);
+        $id = $item['id'];
 
         return Response::json([
-            'item' => $data,
-            'id'   => $id,
-            'new'  => $new
+            'id'   => $id
         ], 200);
     }
 
+    // Delete selected item
+    public function postDeleteItem()
+    {
+        $id = Input::get('id');
+        $this->cargo->delete($id);
+
+        return Response::json([], 200);
+    }
+
+    /**
+     * Save created category
+     */
     public function postSaveCategory()
     {
         $category = array(
@@ -97,11 +111,21 @@ class CargoController extends Controller
         return Response::json([], 200);
     }
 
-    public function postDeleteItem()
+    // Update edited category
+    public function postUpdateCategory()
     {
-        $id = Input::get('id');
-        $this->cargo->delete($id);
+        $data = Input::get('data');
+        $this->categories->update($data['id'], $data);
 
         return Response::json([], 200);
+    }
+
+    // Delete specified category
+    public function postDeleteCategory()
+    {
+        $id = Input::get('id');
+        $this->categories->delete($id);
+
+        return Response::json(['id' => $id], 200);
     }
 }

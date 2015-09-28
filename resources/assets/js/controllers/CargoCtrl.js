@@ -13,6 +13,7 @@ window.CargoCtrl = {
         });
     },
 
+    // Hook up list.js to category menu
     initCategoryList: function() {
         var $categoryList = $('.category-list');
 
@@ -42,13 +43,13 @@ window.CargoCtrl = {
                         return false;
                     });
 
-                    $('.edit-category').removeClass('hide');
+                    $('.edit-category-button').removeClass('hide');
                 } else {
                     itemsList.filter(function (item) {
                         return true;
                     });
 
-                    $('.edit-category').addClass('hide');
+                    $('.edit-category-button').addClass('hide');
                 }
             }
         });
@@ -104,46 +105,55 @@ window.CargoCtrl = {
         });
     },
 
-    // Update existing item or insert new item
+    // Insert new item
     saveItem: function() {
         var self = this,
             data = {
-                id: $('.edit-item .item-id').html(),
-                name: $('#name').val(),
-                width: $('#width').val(),
-                length: $('#length').val(),
-                category_id: $('#category').val()
+                name: $('.new-item #name').val(),
+                width: $('.new-item #width').val(),
+                length: $('.new-item #length').val(),
+                category_id: $('.new-item #category').val()
         };
 
         $.post('cargo/save-item', {
             data: data
         }).success(function (response) {
-            if (response.new == true) {
-                var itemRow = {
-                    id: response.id,
-                    name: data.name,
-                    width: data.width,
-                    length: data.length,
-                    category: data.category_id
-                };
+            var itemRow = {
+                id: response.id,
+                name: data.name,
+                width: data.width,
+                length: data.length,
+                category: data.category_id
+            };
 
-                // Add new row to items table
-                var renderedItemRow = Mustache.render($('.new-item-row').html(), itemRow);
-                $('.list').append(renderedItemRow);
-                self.closePopups();
-
-                //Reset form
-                $.each($('.new-item input'), function (i, element) {
-                    $(element).val('');
-                });
-                $('.new-item select').val(1);
-            } else {
-                // Update row in items table
-                $('tr[data-id="' + data.id + '"] .name').html(data.name);
-                self.closePopups();
-            }
+            // Add new row to items table
+            var renderedItemRow = Mustache.render($('.new-item-row').html(), itemRow);
+            $('.list').append(renderedItemRow);
+            self.closePopups();
         })
         .error(function(response) {
+            console.log(response);
+        });
+    },
+
+    // Update edited item
+    updateItem: function() {
+        var self = this,
+            data = {
+                id: $('.edit-item .item-id').html(),
+                name: $('.edit-item #name').val(),
+                width: $('.edit-item #width').val(),
+                length: $('.edit-item #length').val(),
+                category_id: $('.edit-item #category').val()
+            };
+
+        $.post('cargo/update-item', {
+            data: data
+        }).success(function (response) {
+            // Update row in items table
+            $('tr[data-id="' + data.id + '"] .name').html(data.name);
+            self.closePopups();
+        }).error(function(response) {
             console.log(response);
         });
     },
@@ -162,7 +172,6 @@ window.CargoCtrl = {
         }).success(function(response) {
             self.closePopups();
             $('tr[data-id="' + id + '"]').remove();
-
         }).error(function(response) {
             console.log('Couldn\'t delete item.');
         });
@@ -180,14 +189,54 @@ window.CargoCtrl = {
         });
     },
 
+    // Display form for editing categories
+    editCategory: function() {
+        var name = $('.category-list .active').html(),
+            id = $('.category-list .active').attr('data-id');
+
+        $('.edit-category #name').val(name);
+        $('.edit-category .category-id').html(id);
+
+        $.magnificPopup.open({
+            items: {
+                src: $('.edit-category'),
+                type: 'inline'
+            },
+            showCloseBtn: true,
+            closeOnBgClick: true
+        });
+    },
+
     // Insert new category
     saveCategory: function() {
         var self = this,
             name = $('.new-category #name').val();
+
         $.post('cargo/save-category', {
             name: name
         }).success(function (response) {
             $('.category-list').append('<li><a href="#">' + name + '</a></li>');
+            self.closePopups();
+            $('.new-category #name').val('');
+
+            self.initCategoryList();
+        }).error(function (response) {
+
+        });
+    },
+
+    updateCategory: function()
+    {
+        var self = this,
+            data = {
+                name : $('.edit-category #name').val(),
+                id : $('.edit-category .category-id').html()
+            };
+
+        $.post('cargo/update-category', {
+            data: data
+        }).success(function (response) {
+            $('.category-list .active').html(data.name);
             self.closePopups();
             self.initCategoryList();
         }).error(function (response) {
@@ -195,8 +244,33 @@ window.CargoCtrl = {
         });
     },
 
-    // Un-display open modal boxes
+    deleteCategory: function()
+    {
+        if (!window.confirm("Are you sure?")) {
+            return false;
+        }
+
+        var self = this,
+            id = $('.edit-category .category-id').html();
+
+        $.post('cargo/delete-category', {
+            id: id
+        }).success(function(response) {
+            self.closePopups();
+            $('.category-list li:has(a.active)').remove();
+            console.log(response);
+        }).error(function(response) {
+            console.log('Couldn\'t delete category.');
+        });
+    },
+
+    // Un-display and reset open modal boxes
     closePopups: function() {
         $.magnificPopup.close();
+
+        $.each($('.form-fields input'), function (i, element) {
+            $(element).val('');
+        });
+        $('.form-fields select').val(1);
     }
 }

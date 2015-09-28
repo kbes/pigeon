@@ -19,7 +19,7 @@
                         </li>
                     @endforeach
                 </ul>
-                <button class="btn">New category</button>
+                <button class="btn" data-function="newCategory()">New category</button>
             </div>
 
             <div class="col-sm-9" id="items">
@@ -28,7 +28,7 @@
                 </span>
                 <span class="category-actions">
                     <button class="btn edit-category hide">Edit category</button>
-                    <button class="btn new-item-button">New item</button>
+                    <button class="btn new-item-button" data-function="newItem()">New item</button>
                 </span>
                 <table class="table table-hover">
                     <thead>
@@ -53,7 +53,7 @@
             </div>
         </div>
 
-        <div id="edit-category" class="form-fields modal-box hide" data-scope="CargoCtrl">
+        <div class="edit-category form-fields modal-box mfp-hide" data-scope="CargoCtrl">
             <form>
                 <h2>Edit category</h2>
                 <label for="name">Name</label>
@@ -63,12 +63,18 @@
             </form>
         </div>
 
-        <div id="new-category" class="form-fields hide" data-scope="CargoCtrl">
+        <div class="new-category form-fields modal-box mfp-hide" data-scope="CargoCtrl">
             <form>
-                <h2>New category</h2>
+                <div class="modal-header">
+                    <h2>New category</h2>
+                </div>
+                <div>
                 <label for="name">Name</label>
-                <input type="text" id="name">
-                <button>Save</button>
+                    <input type="text" id="name">
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" data-function="saveCategory()">Save</button>
+                </div>
             </form>
         </div>
 

@@ -86,6 +86,17 @@ class CargoController extends Controller
         ], 200);
     }
 
+    public function postSaveCategory()
+    {
+        $category = array(
+            'name' => Input::get('name')
+        );
+
+        $this->categories->create($category);
+
+        return Response::json([], 200);
+    }
+
     public function postDeleteItem()
     {
         $id = Input::get('id');

@@ -10,6 +10,8 @@ class Category extends Model
      *
      * @var array
      */
-    protected $fillable = [];
+    protected $fillable = ['name'];
+
+    public $timestamps = false;
 
 }

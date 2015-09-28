@@ -4,7 +4,6 @@ window.CargoCtrl = {
     _construct: function () {
         var self = this;
         self.initCategoryList();
-        self.initNewItem();
         self.initNumericInput();
 
         $.ajaxSetup({
@@ -56,16 +55,14 @@ window.CargoCtrl = {
     },
 
     // Display form to create a new item
-    initNewItem: function() {
-        $('.new-item-button').click(function (event) {
-            $.magnificPopup.open({
-                items: {
-                    src: $('.new-item'),
-                    type: 'inline'
-                },
-                showCloseBtn: true,
-                closeOnBgClick: true
-            });
+    newItem: function() {
+        $.magnificPopup.open({
+            items: {
+                src: $('.new-item'),
+                type: 'inline'
+            },
+            showCloseBtn: true,
+            closeOnBgClick: true
         });
     },
 
@@ -171,6 +168,34 @@ window.CargoCtrl = {
         });
     },
 
+    // Display form to create new category
+    newCategory: function() {
+        $.magnificPopup.open({
+            items: {
+                src: $('.new-category'),
+                type: 'inline'
+            },
+            showCloseBtn: true,
+            closeOnBgClick: true
+        });
+    },
+
+    // Insert new category
+    saveCategory: function() {
+        var self = this,
+            name = $('.new-category #name').val();
+        $.post('cargo/save-category', {
+            name: name
+        }).success(function (response) {
+            $('.category-list').append('<li><a href="#">' + name + '</a></li>');
+            self.closePopups();
+            self.initCategoryList();
+        }).error(function (response) {
+
+        });
+    },
+
+    // Un-display open modal boxes
     closePopups: function() {
         $.magnificPopup.close();
     }

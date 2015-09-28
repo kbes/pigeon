@@ -75,13 +75,22 @@ class CargoController extends Controller
             $new = false;
         } else {
             $item = $this->cargo->create($data);
+            $id = $item['id'];
             $new = true;
         }
 
         return Response::json([
             'item' => $data,
-            'id'   => $item['id'],
+            'id'   => $id,
             'new'  => $new
         ], 200);
+    }
+
+    public function postDeleteItem()
+    {
+        $id = Input::get('id');
+        $this->cargo->delete($id);
+
+        return Response::json([], 200);
     }
 }

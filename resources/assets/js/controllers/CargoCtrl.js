@@ -55,6 +55,7 @@ window.CargoCtrl = {
         });
     },
 
+    // Display form to create a new item
     initNewItem: function() {
         $('.new-item-button').click(function (event) {
             $.magnificPopup.open({
@@ -68,6 +69,7 @@ window.CargoCtrl = {
         });
     },
 
+    // Filter user input on numeric fields
     initNumericInput: function() {
         $('.numeric').on('input', function (element) {
             var userValue = parseInt($(this).val());
@@ -80,6 +82,7 @@ window.CargoCtrl = {
         });
     },
 
+    // Display item editing form
     editItem: function(id) {
         $.post('/cargo/item',{
             'id': id
@@ -108,11 +111,11 @@ window.CargoCtrl = {
     saveItem: function() {
         var self = this,
             data = {
-            id: $('.edit-item .item-id').html(),
-            name: $('#name').val(),
-            width: $('#width').val(),
-            length: $('#length').val(),
-            category_id: $('#category').val()
+                id: $('.edit-item .item-id').html(),
+                name: $('#name').val(),
+                width: $('#width').val(),
+                length: $('#length').val(),
+                category_id: $('#category').val()
         };
 
         $.post('cargo/save-item', {
@@ -147,8 +150,25 @@ window.CargoCtrl = {
             console.log(response);
         });
     },
-    deleteItem: function(id) {
 
+    // Delete item
+    deleteItem: function() {
+        if (!window.confirm("Are you sure?")) {
+            return false;
+        }
+
+        var self = this,
+            id = $('.edit-item .item-id').html();
+
+        $.post('cargo/delete-item', {
+            id: id
+        }).success(function(response) {
+            self.closePopups();
+            $('tr[data-id="' + id + '"]').remove();
+
+        }).error(function(response) {
+            console.log('Couldn\'t delete item.');
+        });
     },
 
     closePopups: function() {

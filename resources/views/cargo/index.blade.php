@@ -120,7 +120,7 @@
                 </select>
             </div>
             <div class="modal-footer">
-                <button class="btn delete">Delete</button>
+                <button class="btn delete" data-function="deleteItem()">Delete</button>
                 <button class="btn submit" data-function="saveItem()">Save</button>
             </div>
         </form>
